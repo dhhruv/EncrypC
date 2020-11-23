@@ -1,7 +1,7 @@
 # EncrypC
 File Encryption Application using Python
 
-![Screenshot](https://raw.githubusercontent.com/ahmednooor/KrypApp/master/screenshot.png)
+![encrypc](https://user-images.githubusercontent.com/72680045/99971140-cbbd0580-2dc2-11eb-97ec-e507a9bcbca2.PNG)
 
 ## Technologies Used:
 * Python3
