@@ -4,7 +4,9 @@ import hashlib
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
+from tkinter import *
 from Cryptodome.Cipher import AES
+import threading
 
 class EncryptionTool:
     def __init__(self, user_file, user_key, user_salt):
@@ -161,7 +163,7 @@ class MainWindow:
         try:
             icon_img = tk.Image(
                 "photo",
-                file=self.THIS_FOLDER_G + "/files/EncrypC.png"
+                file=self.THIS_FOLDER_G + "/files/EncrypC.ico"
             )
             root.call(
                 "wm",
@@ -180,6 +182,10 @@ class MainWindow:
         self.menu_bar.add_command(
             label="Tutorial",
             command=self.show_help_callback
+        )
+        self.menu_bar.add_command(
+            label="About",
+            command=self.show_about
         )
 
         root.configure(
@@ -226,7 +232,7 @@ class MainWindow:
             text="SELECT FILE",
             command=self.selectfile_callback,
             width=42,
-            bg="#1089ff",
+            bg="#2380ff",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
@@ -281,7 +287,7 @@ class MainWindow:
             root,
             text="ENCRYPT",
             command=self.encrypt_callback,
-            bg="#ed3833",
+            bg="#f42323",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
@@ -301,7 +307,7 @@ class MainWindow:
             root,
             text="DECRYPT",
             command=self.decrypt_callback,
-            bg="#00bd56",
+            bg="#34e42e",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
@@ -321,7 +327,7 @@ class MainWindow:
             root,
             text="CLEAR",
             command=self.reset_callback,
-            bg="#aaaaaa",
+            bg="#a5afb8",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
@@ -391,6 +397,10 @@ class MainWindow:
         self.status_label.update()
 
     def encrypt_callback(self):
+        t1 = threading.Thread(target=self.encrypt_execute)
+        t1.start()
+
+    def encrypt_execute(self):
         self.freeze_controls()
 
         try:
@@ -405,10 +415,12 @@ class MainWindow:
                 percentage = "{0:.2f}%".format(percentage)
                 self._status.set(percentage)
                 self.status_label.update()
-            self._status.set("File Encrypted...")
+            self._status.set("File Encryption Successful !!")
+            messagebox.showinfo("EncrypC","File Encryption Successful !!")
             if self.should_cancel:
                 self._cipher.abort()
-                self._status.set("Cancelled...")
+                self._status.set("Cancellation Successful !!")
+                messagebox.showinfo("EncrypC","Cancellation Successful !!")
             self._cipher = None
             self.should_cancel = False
         except Exception as e:
@@ -417,6 +429,10 @@ class MainWindow:
         self.unfreeze_controls()
 
     def decrypt_callback(self):
+        t2 = threading.Thread(target=self.decrypt_execute)
+        t2.start()
+
+    def decrypt_execute(self):
         self.freeze_controls()
 
         try:
@@ -431,10 +447,12 @@ class MainWindow:
                 percentage = "{0:.2f}%".format(percentage)
                 self._status.set(percentage)
                 self.status_label.update()
-            self._status.set("File Decrypted...")
+            self._status.set("File Decryption Successful !!")
+            messagebox.showinfo("EncrypC","File Decryption Successful !!")
             if self.should_cancel:
                 self._cipher.abort()
-                self._status.set("Cancelled...")
+                self._status.set("Cancellation Successful !!")
+                messagebox.showinfo("EncrypC","Cancellation Successful !!")
             self._cipher = None
             self.should_cancel = False
         except Exception as e:
@@ -463,8 +481,14 @@ class MainWindow:
 6. You can also Click CANCEL Button during Encryption/Decryption to stop the process or if it doesn't respond."""
         )
 
+    def show_about(self):
+    	messagebox.showinfo("About",
+    		"""EncrypC is a File Encryption Tool based on AES Encryption. Created and Managed by Dhruv Panchal.
+    		""")
+
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
     MAIN_WINDOW = MainWindow(ROOT)
+    ROOT.iconbitmap(r'Z:\Git\EncrypC\files\EncrypC.ico')
     ROOT.mainloop()
