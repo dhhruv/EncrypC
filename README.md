@@ -11,6 +11,9 @@
     <a href="https://github.com/dhhruv/EncrypC">
     	<img src="https://img.shields.io/github/v/release/dhhruv/EncrypC">
     </a>
+    <a href="https://github.com/dhhruv/EncrypC">
+      <img src="https://img.shields.io/badge/managed%20since-dec%202019-blue">
+    </a>
   </p>
 </p>
 
