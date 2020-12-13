@@ -180,7 +180,7 @@ class MainWindow:
             relief=tk.FLAT
         )
         self.menu_bar.add_command(
-            label="Tutorial",
+            label="Help!",
             command=self.show_help_callback
         )
         self.menu_bar.add_command(
@@ -473,17 +473,16 @@ class MainWindow:
     def show_help_callback(self):
         messagebox.showinfo(
             "Tutorial",
-            """1. Open the Application and Click SELECT FILE Button and select your file e.g. "mydoc.pdf" (OR You can add path manually).
+            """1. Open the Application and Click SELECT FILE Button to select your file e.g. "mydoc.pdf" (OR You can add path manually).
 2. Enter your Key (This should be alphanumeric letters). Remember this so you can Decrypt the file later. (Else you'll lose your file permanently)
 3. Click ENCRYPT Button to encrypt the file. A new encrypted file with ".encr" extention e.g. "mydoc.pdf.encr" will be created in the same directory where the "mydoc.pdf" is.
 4. When you want to Decrypt a file you, will select the file with the ".encr" extention and Enter your Key which you chose at the time of Encryption. Click DECRYPT Button to decrypt. The decrypted file will be of the same name as before with the suffix "decrypted" for e.g. "mydoc_decrypted.pdf".
-5. Click CLEAR Button to reset the input fields and status bar.
-6. You can also Click CANCEL Button during Encryption/Decryption to stop the process or if it doesn't respond."""
+5. Click CLEAR Button to reset the input fields and status bar."""
         )
 
     def show_about(self):
     	messagebox.showinfo("About",
-    		"""EncrypC is a File Encryption Tool based on AES Encryption. Created and Managed by Dhruv Panchal.
+    		"""EncrypC is a File Encryption Tool based on AES Algorithm. Created and Managed by Dhruv Panchal. https://github.com/dhhruv
     		""")
 
 
