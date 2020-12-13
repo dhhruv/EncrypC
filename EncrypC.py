@@ -481,7 +481,7 @@ class MainWindow:
         )
 
     def show_about(self):
-    	messagebox.showinfo("About",
+    	messagebox.showinfo("EncrypC v1.1.0",
     		"""EncrypC is a File Encryption Tool based on AES Algorithm. Created and Managed by Dhruv Panchal. https://github.com/dhhruv
     		""")
 
