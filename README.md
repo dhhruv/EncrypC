@@ -1,9 +1,27 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/72680045/102007940-19d68080-3d53-11eb-8518-d681586666e6.png">
+  <h2 align="center" style="margin-top: -4px !important;">File Encryption Application using Python</h2>
+  <p align="center">
+    <a href="https://github.com/dhhruv/EncrypC/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/dhhruv/EncrypC?color=blue">
+    </a>
+    <a href="https://www.python.org/">
+    	<img src="https://img.shields.io/badge/python-v3.8-blue.svg">
+    </a>
+    <a href="https://github.com/dhhruv/EncrypC">
+    	<img src="https://img.shields.io/github/v/release/dhhruv/EncrypC">
+    </a>
+  </p>
+</p>
+
 # EncrypC
-File Encryption Application using Python
 
-![encrypc](https://user-images.githubusercontent.com/72680045/99971140-cbbd0580-2dc2-11eb-97ec-e507a9bcbca2.PNG)
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/72680045/102008090-f9f38c80-3d53-11eb-8372-ae41e077a65e.PNG">
+</p>
+<br>
 
-## Technologies Used:
+## Tech Stack Used:
 * Python3
 * Tkinter for GUI (Inbuilt)
 * pycryptodomex for Cryptodome (AES Encryption)
@@ -15,12 +33,11 @@ pip install pycryptodomex
 ```
 
 ## Tutorial to Encrypt/Decrypt Files:
-1. Open the Application and Click SELECT FILE Button and select your file e.g. "mydoc.pdf" (OR You can add path manually).
+1. Open the Application and Click SELECT FILE Button to select your file e.g. "mydoc.pdf" (OR You can add path manually).
 2. Enter your Key (This should be alphanumeric letters). Remember this so you can Decrypt the file later. (Else you'll lose your file permanently)
 3. Click ENCRYPT Button to encrypt the file. A new encrypted file with ".encr" extention e.g. "mydoc.pdf.encr" will be created in the same directory where the "mydoc.pdf" is.
 4. When you want to Decrypt a file you, will select the file with the ".encr" extention and Enter your Key which you chose at the time of Encryption. Click DECRYPT Button to decrypt. The decrypted file will be of the same name as before with the suffix "decrypted" for e.g. "mydoc_decrypted.pdf".
 5. Click CLEAR Button to reset the input fields and status bar.
-6. You can also Click CANCEL Button during Encryption/Decryption to stop the process or if it doesn't respond.
 
-## Special Note:
--	The Software is still in it's Prototype Stage so we request you to ensure that you have a backup of all of your Data on which you're testing to prevent deletion of any of your useful data. Under no circumstances shall we be liable or responsible to you or any other person for any damages, loss of any of your useful data by using this Software. The prototype is basically for testing purposes only.
+## Important Note:
+-	**The Authors will not be responsible for any kind of loss of data so it is essential to have a Backup of Original Data you give as Input to Encrypt/Decrypt in the Software. Under no circumstances shall we be liable or responsible to you or any other person for any damages, loss of any of your useful data by using this Software. Read the [LICENSE](https://github.com/dhhruv/EncrypC/blob/master/LICENSE) for more information.**
