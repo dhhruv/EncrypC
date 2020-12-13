@@ -489,5 +489,4 @@ class MainWindow:
 if __name__ == "__main__":
     ROOT = tk.Tk()
     MAIN_WINDOW = MainWindow(ROOT)
-    ROOT.iconbitmap(r'Z:\Git\EncrypC\files\EncrypC.ico')
     ROOT.mainloop()
