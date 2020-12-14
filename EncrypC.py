@@ -163,7 +163,7 @@ class MainWindow:
         try:
             icon_img = tk.Image(
                 "photo",
-                file=self.THIS_FOLDER_G + "/files/EncrypC.ico"
+                file=self.THIS_FOLDER_G + "./files/encrypc.ico"
             )
             root.call(
                 "wm",
@@ -481,7 +481,7 @@ class MainWindow:
         )
 
     def show_about(self):
-    	messagebox.showinfo("EncrypC v1.1.0",
+    	messagebox.showinfo("EncrypC v1.1.1",
     		"""EncrypC is a File Encryption Tool based on AES Algorithm. Created and Managed by Dhruv Panchal. https://github.com/dhhruv
     		""")
 
@@ -489,4 +489,7 @@ class MainWindow:
 if __name__ == "__main__":
     ROOT = tk.Tk()
     MAIN_WINDOW = MainWindow(ROOT)
+    bundle_dir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+    path_to_ico = os.path.abspath(os.path.join(bundle_dir, "encrypc.ico"))
+    ROOT.iconbitmap(path_to_ico)
     ROOT.mainloop()
