@@ -3,19 +3,19 @@
   <h2 align="center" style="margin-top: -4px !important;">File Encryption Application using Python</h2>
   <p align="center">
     <a href="https://github.com/dhhruv/EncrypC/blob/master/LICENSE">
-      <img src="https://img.shields.io/github/license/dhhruv/EncrypC?color=blue">
+      <img src="https://img.shields.io/github/license/dhhruv/EncrypC?color=informational">
     </a>
     <a href="https://www.python.org/">
-    	<img src="https://img.shields.io/badge/python-v3.8-blue.svg">
+    	<img src="https://img.shields.io/badge/python-v3.8-informational">
     </a>
     <img src="https://img.shields.io/badge/maintainer-dhhruv-informational">
     <a href="https://github.com/dhhruv/EncrypC">
     	<img src="https://img.shields.io/github/v/release/dhhruv/EncrypC">
     </a>
     <a href="https://github.com/dhhruv/EncrypC">
-      <img src="https://img.shields.io/badge/managed%20since-dec%202019-blue">
+      <img src="https://img.shields.io/badge/managed%20since-dec%202019-informational">
     </a>
-    <img src="https://img.shields.io/badge/contributions-welcome-brightgreen">
+    <img src="https://img.shields.io/badge/contributions-welcome-informational">
   </p>
 </p>
 
