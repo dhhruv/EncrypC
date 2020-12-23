@@ -232,7 +232,7 @@ class MainWindow:
             text="SELECT FILE",
             command=self.selectfile_callback,
             width=42,
-            bg="#2380ff",
+            bg="#3498db",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
@@ -287,13 +287,13 @@ class MainWindow:
             root,
             text="ENCRYPT",
             command=self.encrypt_callback,
-            bg="#f42323",
+            bg="#27ae60",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
         )
         self.encrypt_btn.grid(
-            padx=(15, 6),
+            padx=15,
             pady=8,
             ipadx=24,
             ipady=6,
@@ -307,13 +307,13 @@ class MainWindow:
             root,
             text="DECRYPT",
             command=self.decrypt_callback,
-            bg="#34e42e",
+            bg="#27ae60",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
         )
         self.decrypt_btn.grid(
-            padx=(6, 15),
+            padx=15,
             pady=8,
             ipadx=24,
             ipady=6,
@@ -327,19 +327,40 @@ class MainWindow:
             root,
             text="CLEAR",
             command=self.reset_callback,
-            bg="#a5afb8",
+            bg="#717d7e",
             fg="#ffffff",
             bd=2,
             relief=tk.FLAT
         )
         self.reset_btn.grid(
             padx=15,
-            pady=(4, 12),
+            pady=8,
             ipadx=24,
             ipady=6,
             row=8,
             column=0,
-            columnspan=4,
+            columnspan=2,
+            sticky=tk.W+tk.E+tk.N+tk.S
+        )
+
+        self.stop_btn = tk.Button(
+            root,
+            text="STOP",
+            command=self.cancel_callback,
+            bg="#aaaaaa",
+            fg="#ffffff",
+            bd=2,
+            state="disabled",
+            relief=tk.FLAT
+        )
+        self.stop_btn.grid(
+            padx=15,
+            pady=8,
+            ipadx=24,
+            ipady=6,
+            row=8,
+            column=2,
+            columnspan=2,
             sticky=tk.W+tk.E+tk.N+tk.S
         )
 
@@ -379,21 +400,21 @@ class MainWindow:
     def freeze_controls(self):
         self.file_entry.configure(state="disabled")
         self.key_entry.configure(state="disabled")
-        self.select_btn.configure(state="disabled")
-        self.encrypt_btn.configure(state="disabled")
-        self.decrypt_btn.configure(state="disabled")
-        self.reset_btn.configure(text="CANCEL", command=self.cancel_callback,
-            fg="#ed3833", bg="#fafafa")
+        self.select_btn.configure(state="disabled",bg='#aaaaaa')
+        self.encrypt_btn.configure(state="disabled",bg='#aaaaaa')
+        self.decrypt_btn.configure(state="disabled",bg='#aaaaaa')
+        self.reset_btn.configure(state="disabled",bg='#aaaaaa')
+        self.stop_btn.configure(state="normal",bg='#e74c3c')
         self.status_label.update()
     
     def unfreeze_controls(self):
         self.file_entry.configure(state="normal")
         self.key_entry.configure(state="normal")
-        self.select_btn.configure(state="normal")
-        self.encrypt_btn.configure(state="normal")
-        self.decrypt_btn.configure(state="normal")
-        self.reset_btn.configure(text="RESET", command=self.reset_callback,
-            fg="#ffffff", bg="#aaaaaa")
+        self.select_btn.configure(state="normal",bg='#3498db')
+        self.encrypt_btn.configure(state="normal",bg='#27ae60')
+        self.decrypt_btn.configure(state="normal",bg='#27ae60')
+        self.reset_btn.configure(state="normal",bg='#717d7e')
+        self.stop_btn.configure(state="disabled",bg='#aaaaaa')
         self.status_label.update()
 
     def encrypt_callback(self):
@@ -415,14 +436,22 @@ class MainWindow:
                 percentage = "{0:.2f}%".format(percentage)
                 self._status.set(percentage)
                 self.status_label.update()
-            self._status.set("File Encryption Successful !!")
-            messagebox.showinfo("EncrypC","File Encryption Successful !!")
+
             if self.should_cancel:
                 self._cipher.abort()
                 self._status.set("Cancellation Successful !!")
                 messagebox.showinfo("EncrypC","Cancellation Successful !!")
+                self._cipher = None
+                self.should_cancel = False
+                self.unfreeze_controls()
+                return
+
             self._cipher = None
             self.should_cancel = False
+            self._status.set("File Encryption Successful !!")
+            messagebox.showinfo("EncrypC","File Encryption Successful !!")
+            
+
         except Exception as e:
             self._status.set(e)
 
@@ -447,14 +476,21 @@ class MainWindow:
                 percentage = "{0:.2f}%".format(percentage)
                 self._status.set(percentage)
                 self.status_label.update()
-            self._status.set("File Decryption Successful !!")
-            messagebox.showinfo("EncrypC","File Decryption Successful !!")
+
             if self.should_cancel:
                 self._cipher.abort()
                 self._status.set("Cancellation Successful !!")
                 messagebox.showinfo("EncrypC","Cancellation Successful !!")
+                self._cipher = None
+                self.should_cancel = False
+                self.unfreeze_controls()
+                return
+
             self._cipher = None
             self.should_cancel = False
+            self._status.set("File Decryption Successful !!")
+            messagebox.showinfo("EncrypC","File Decryption Successful !!")
+                        
         except Exception as e:
             self._status.set(e)
         
@@ -481,7 +517,7 @@ class MainWindow:
         )
 
     def show_about(self):
-    	messagebox.showinfo("EncrypC v1.1.1",
+    	messagebox.showinfo("EncrypC v1.2.0",
     		"""EncrypC is a File Encryption Tool based on AES Algorithm. Created and Managed by Dhruv Panchal. https://github.com/dhhruv
     		""")
 
