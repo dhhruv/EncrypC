@@ -22,15 +22,9 @@
 # EncrypC
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/72680045/103016257-cb518f00-4567-11eb-82be-3d9531e80f35.PNG" alt="EncrypC Stable" width="240" height="253" align='left'>
-  <img src="https://user-images.githubusercontent.com/72680045/103016264-cd1b5280-4567-11eb-98dc-6ac1de3279c6.PNG" alt="EncrypC Working" width="240" height="253" align='right'>
+	<img src="https://user-images.githubusercontent.com/72680045/103018817-d0184200-456b-11eb-8fd2-11893c3173cd.PNG" alt="EncrypC Stable" width="240" height="253">
+  <img src="https://user-images.githubusercontent.com/72680045/103018827-d1e20580-456b-11eb-8503-173356c1cde9.PNG" alt="EncrypC Working" width="240" height="253">
 </p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ## Tech Stack Used:
 * Python3
