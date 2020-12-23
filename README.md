@@ -22,8 +22,8 @@
 # EncrypC
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/72680045/103018817-d0184200-456b-11eb-8fd2-11893c3173cd.PNG" alt="EncrypC Stable" width="240" height="253">
-  <img src="https://user-images.githubusercontent.com/72680045/103018827-d1e20580-456b-11eb-8503-173356c1cde9.PNG" alt="EncrypC Working" width="240" height="253">
+	<img src="https://user-images.githubusercontent.com/72680045/103018817-d0184200-456b-11eb-8fd2-11893c3173cd.PNG" alt="EncrypC Stable">
+  <img src="https://user-images.githubusercontent.com/72680045/103018827-d1e20580-456b-11eb-8503-173356c1cde9.PNG" alt="EncrypC Working">
 </p>
 
 ## Tech Stack Used:
