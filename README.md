@@ -26,6 +26,11 @@
   <img src="https://user-images.githubusercontent.com/72680045/103016264-cd1b5280-4567-11eb-98dc-6ac1de3279c6.PNG" alt="EncrypC Working" width="240" height="253" align='right'>
 </p>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Tech Stack Used:
 * Python3
