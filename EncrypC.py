@@ -518,8 +518,9 @@ class MainWindow:
 
     def show_about(self):
     	messagebox.showinfo("EncrypC v1.2.0",
-    		"""EncrypC is a File Encryption Tool based on AES Algorithm. Created and Managed by Dhruv Panchal. https://github.com/dhhruv
-    		""")
+    		"""EncrypC is a File Encryption Tool based on AES Algorithm. 
+Managed by Dhruv Panchal.
+https://github.com/dhhruv""")
 
 
 if __name__ == "__main__":
@@ -528,4 +529,5 @@ if __name__ == "__main__":
     bundle_dir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
     path_to_ico = os.path.abspath(os.path.join(bundle_dir, "encrypc.ico"))
     ROOT.iconbitmap(path_to_ico)
+    ROOT.resizable(height = False, width = False)
     ROOT.mainloop()
