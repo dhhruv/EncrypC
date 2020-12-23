@@ -22,7 +22,8 @@
 # EncrypC
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/72680045/102008090-f9f38c80-3d53-11eb-8372-ae41e077a65e.PNG">
+	<img src="https://user-images.githubusercontent.com/72680045/103016257-cb518f00-4567-11eb-82be-3d9531e80f35.PNG">
+  <img src="https://user-images.githubusercontent.com/72680045/103016264-cd1b5280-4567-11eb-98dc-6ac1de3279c6.PNG">
 </p>
 <br>
 
