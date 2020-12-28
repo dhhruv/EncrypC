@@ -7,6 +7,7 @@ from tkinter import messagebox
 from tkinter import *
 from Cryptodome.Cipher import AES
 import threading
+from pathlib import Path
 
 class EncryptionTool:
     def __init__(self, user_file, user_key, user_salt):
@@ -151,6 +152,7 @@ class MainWindow:
         self._cipher = None
         self._file_url = tk.StringVar()
         self._secret_key = tk.StringVar()
+        self._secret_key_check = tk.StringVar()
         self._salt = tk.StringVar()
         self._status = tk.StringVar()
         self._status.set("---")
@@ -248,13 +250,13 @@ class MainWindow:
             sticky=tk.W+tk.E+tk.N+tk.S
         )
 
-        self.key_entry_label = tk.Label(
+        self.key_entry_label1 = tk.Label(
             root,
             text="Enter Key (To be Remembered while Decryption)",
             bg="#eeeeee",
             anchor=tk.W
         )
-        self.key_entry_label.grid(
+        self.key_entry_label1.grid(
             padx=12,
             pady=(8, 0),
             ipadx=0,
@@ -265,14 +267,14 @@ class MainWindow:
             sticky=tk.W+tk.E+tk.N+tk.S
         )
 
-        self.key_entry = tk.Entry(
+        self.key_entry1 = tk.Entry(
             root,
             textvariable=self._secret_key,
             bg="#fff",
             exportselection=0,
             relief=tk.FLAT
         )
-        self.key_entry.grid(
+        self.key_entry1.grid(
             padx=15,
             pady=6,
             ipadx=8,
@@ -283,10 +285,45 @@ class MainWindow:
             sticky=tk.W+tk.E+tk.N+tk.S
         )
 
+        self.key_entry_label2 = tk.Label(
+            root,
+            text="Re-enter Key (Validation)",
+            bg="#eeeeee",
+            anchor=tk.W
+        )
+        self.key_entry_label2.grid(
+            padx=12,
+            pady=(8, 0),
+            ipadx=0,
+            ipady=1,
+            row=5,
+            column=0,
+            columnspan=4,
+            sticky=tk.W+tk.E+tk.N+tk.S
+        )
+
+        self.key_entry2 = tk.Entry(
+            root,
+            textvariable=self._secret_key_check,
+            bg="#fff",
+            exportselection=0,
+            relief=tk.FLAT
+        )
+        self.key_entry2.grid(
+            padx=15,
+            pady=6,
+            ipadx=8,
+            ipady=8,
+            row=6,
+            column=0,
+            columnspan=4,
+            sticky=tk.W+tk.E+tk.N+tk.S
+        )
+
         self.encrypt_btn = tk.Button(
             root,
             text="ENCRYPT",
-            command=self.encrypt_callback,
+            command=self.e_check_callback,
             bg="#27ae60",
             fg="#ffffff",
             bd=2,
@@ -306,7 +343,7 @@ class MainWindow:
         self.decrypt_btn = tk.Button(
             root,
             text="DECRYPT",
-            command=self.decrypt_callback,
+            command=self.d_check_callback,
             bg="#27ae60",
             fg="#ffffff",
             bd=2,
@@ -399,7 +436,8 @@ class MainWindow:
     
     def freeze_controls(self):
         self.file_entry.configure(state="disabled")
-        self.key_entry.configure(state="disabled")
+        self.key_entry1.configure(state="disabled")
+        self.key_entry2.configure(state="disabled")
         self.select_btn.configure(state="disabled",bg='#aaaaaa')
         self.encrypt_btn.configure(state="disabled",bg='#aaaaaa')
         self.decrypt_btn.configure(state="disabled",bg='#aaaaaa')
@@ -409,13 +447,57 @@ class MainWindow:
     
     def unfreeze_controls(self):
         self.file_entry.configure(state="normal")
-        self.key_entry.configure(state="normal")
+        self.key_entry1.configure(state="normal")
+        self.key_entry2.configure(state="normal")
         self.select_btn.configure(state="normal",bg='#3498db')
         self.encrypt_btn.configure(state="normal",bg='#27ae60')
         self.decrypt_btn.configure(state="normal",bg='#27ae60')
         self.reset_btn.configure(state="normal",bg='#717d7e')
         self.stop_btn.configure(state="disabled",bg='#aaaaaa')
         self.status_label.update()
+
+    def e_check_callback(self):
+
+    	newPath=Path(self._file_url.get())
+    	if newPath.is_file():
+    		pass
+    	else:
+    		messagebox.showinfo("EncrypC","Please Enter a valid File URL !!")
+    		return
+
+    	if len(self._secret_key.get())==0:
+    		messagebox.showinfo("EncrypC","Please Enter a valid Secret Key !!")
+    		return
+    	elif self._secret_key.get() != self._secret_key_check.get():
+    		messagebox.showinfo("EncrypC","Passwords do not match !!")
+    		return
+
+
+    	self.encrypt_callback()
+
+    def d_check_callback(self):
+
+    	newPath=Path(self._file_url.get())
+    	if newPath.is_file():
+    		pass
+    	else:
+    		messagebox.showinfo("EncrypC","Please Enter a valid File URL !!")
+    		return
+
+    	if self._file_url.get()[-4:] != "encr":
+    		messagebox.showinfo("EncrypC","""Provided File is not an Encrypted File !!
+Please Enter an Encrypted File to Decrypt.""")
+    		return
+
+    	if len(self._secret_key.get())==0:
+    		messagebox.showinfo("EncrypC","Please Enter a Secret Key !!")
+    		return
+    	elif self._secret_key.get() != self._secret_key_check.get():
+    		messagebox.showinfo("EncrypC","Passwords do not match !!")
+    		return
+    		
+    	self.decrypt_callback()
+
 
     def encrypt_callback(self):
         t1 = threading.Thread(target=self.encrypt_execute)
