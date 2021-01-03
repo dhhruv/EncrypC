@@ -8,14 +8,10 @@
     <a href="https://www.python.org/">
     	<img src="https://img.shields.io/badge/python-v3.8-informational">
     </a>
-    <img src="https://img.shields.io/badge/maintainer-dhhruv-informational">
     <a href="https://github.com/dhhruv/EncrypC">
     	<img src="https://img.shields.io/github/v/release/dhhruv/EncrypC">
     </a>
-    <a href="https://github.com/dhhruv/EncrypC">
-      <img src="https://img.shields.io/badge/managed%20since-dec%202019-informational">
-    </a>
-    <img src="https://img.shields.io/badge/contributions-welcome-informational">
+    <img src="https://img.shields.io/github/downloads/dhhruv/EncrypC/total?color=important">
   </p>
 </p>
 
