@@ -1,15 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import hashlib
 import os
 import sys
-import hashlib
-import tkinter as tk
-from tkinter import filedialog
-from tkinter import messagebox
-from tkinter import *
-from Cryptodome.Cipher import AES
 import threading
+import tkinter as tk
 from pathlib import Path
+from tkinter import *
+from tkinter import filedialog, messagebox
+
+from Cryptodome.Cipher import AES
 
 
 class EncryptionTool:
